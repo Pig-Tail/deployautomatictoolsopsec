@@ -32,6 +32,11 @@ ln -s /snap/bin/certbot /usr/bin/certbot
 certbot --apache
 echo "##########################Automatic renewal###############################"
 certbot renew --dry-run
-
+echo "##########################Descargando el chisel###############################"
+wget https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_amd64.gz
+gzip -d chisel_1.7.7_linux_amd64.gz
+rm chisel_1.7.7_linux_amd64.gz
+chmod +x chisel_1.7.7_linux_amd64
+mv chisel_1.7.7_linux_amd64 /usr/bin
 echo "##########################Poniendo al Apache Rocoso###############################"
 sh ./rocoso.sh
